@@ -11,10 +11,10 @@ namespace TodoApi.Models
     {
         private readonly IHostingEnvironment environment;
 
-        public TodoContext(DbContextOptions<TodoContext> options)
+        public TodoContext(DbContextOptions<TodoContext> options, IHostingEnvironment environment)
             : base(options)
         {
-            
+            this.environment = environment;
         }
 
 
@@ -28,7 +28,8 @@ namespace TodoApi.Models
         {
             base.OnModelCreating(modelBuilder);
 
-            var jsonString = File.ReadAllText("users.json");
+            var path = Path.Combine(environment.ContentRootPath, "users.json");
+            var jsonString = File.ReadAllText(path);
             var list = JsonConvert.DeserializeObject<List<User>>(jsonString);
             modelBuilder.Entity<User>().HasData(list);
         }
