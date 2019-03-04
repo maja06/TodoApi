@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ namespace TodoApi.Models
 {
     public class TodoContext : DbContext
     {
+        private readonly IHostingEnvironment environment;
 
         public TodoContext(DbContextOptions<TodoContext> options)
             : base(options)
