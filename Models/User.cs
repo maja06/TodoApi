@@ -15,6 +15,9 @@ namespace TodoApi.Models
         public DateTime BirthDate { get; set; }
         public string BirthPlace { get; set; }
         public string Email { get; set; }
+        
+
+
 
     }
 }

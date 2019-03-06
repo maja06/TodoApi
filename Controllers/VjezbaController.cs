@@ -6,6 +6,8 @@ using TodoApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections;
+using Microsoft.EntityFrameworkCore.Query.Internal;
+
 
 namespace TodoApi.Controllers
 {
@@ -20,20 +22,29 @@ namespace TodoApi.Controllers
             _context = context;
 
             context.Database.EnsureCreated();
-           
+
         }
-        
 
-        
-           //Declar class fields
-           public int Number1 = 12;
-           public int Number2 = 6;
-           public string Name1 = "Mitar";
-           public string Name2 = "Filip";
-           public bool Status = false;
-           public static List<int> Values;
 
-        public enum Day { Mon, Tue, Wed, Thu, Fri, Sat, Sun}
+
+        //Declar class fields
+        public int Number1 = 12;
+        public int Number2 = 6;
+        public string Name1 = "Mitar";
+        public string Name2 = "Filip";
+        public bool Status = false;
+        public static List<int> Values;
+
+        public enum Day
+        {
+            Mon,
+            Tue,
+            Wed,
+            Thu,
+            Fri,
+            Sat,
+            Sun
+        }
 
 
         //Get: api/<controller>
@@ -41,7 +52,7 @@ namespace TodoApi.Controllers
         //Return int
         public int GetInt1()
         {
-            if (Number1+Number2>15)
+            if (Number1 + Number2 > 15)
             {
                 return 1;
             }
@@ -70,8 +81,8 @@ namespace TodoApi.Controllers
 
         //Get: api/<controller>
         [HttpGet("GetString")]
-         //Return string
-         public string GetString()
+        //Return string
+        public string GetString()
         {
             return Name2;
         }
@@ -114,7 +125,7 @@ namespace TodoApi.Controllers
         {
             string name = GetString();
             switch (name)
-                {
+            {
                 case "Mitar":
                     return true;
                     break;
@@ -137,13 +148,14 @@ namespace TodoApi.Controllers
 
             int number = 1;
 
-            for ( int i = 1; i <= Number1; i++)
+            for (int i = 1; i <= Number1; i++)
             {
                 if (Number1 % i == 1)
                 {
                     number = i;
                 }
             }
+
             return number;
         }
 
@@ -174,20 +186,20 @@ namespace TodoApi.Controllers
             {
                 Status = true;
             }
+
             return Status;
 
         }
-
-       
-
-
-        
-              
-       
-        
     }
+
 }
 
+
+
+
+
+
+    
 
 
 

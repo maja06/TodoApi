@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TodoApi.Models;
 using System.Xml.Linq;
+using Microsoft.AspNetCore.Identity;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace TodoApi.Controllers
@@ -22,6 +23,8 @@ namespace TodoApi.Controllers
             _context = context;
             context.Database.EnsureCreated();
         }
+
+        
 
         [HttpGet("GetById")]
         public IActionResult GetById(int id)
@@ -100,13 +103,23 @@ namespace TodoApi.Controllers
 
        
 
-       
-       
-
-
-
-
         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

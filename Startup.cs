@@ -27,10 +27,9 @@ namespace TodoApi
         //container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<TodoContext>(opt =>
-              opt.UseInMemoryDatabase("TodoList"));
+           s
 
-            //services.AddDbContext<TodoContext>(opts => opts.UseSqlServer(Configuration["ConnectionString:TodoDB"]));
+            services.AddDbContext<TodoContext>(opts => opts.UseSqlServer(Configuration["ConnectionString:TodoDB"]));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddSwaggerGen(c =>
